@@ -1,0 +1,24 @@
+{
+  "name": "chatgroup",
+  "version": "0.0.0",
+  "description": "A web application where you can join a group and chat with people that is in there.",
+  "main": "src/index.jsx",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rogeliosamuel621/Chat-Group.git"
+  },
+  "keywords": [
+    "Socket.io",
+    "React",
+    "Webpack"
+  ],
+  "author": "Rogelio Samuel <@rogeliosamuel21>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rogeliosamuel621/Chat-Group/issues"
+  },
+  "homepage": "https://github.com/rogeliosamuel621/Chat-Group#readme"
+}
