@@ -1,10 +1,15 @@
 import React from 'react';
 import './styles/app.css';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+
+import Home from './components/pages/Home';
 
 export const App = () => {
   return (
-    <>
-      <h1>Hello world</h1>
-    </>
+    <BrowserRouter>
+      <Switch>
+        <Route exact path="/" component={Home} />
+      </Switch>
+    </BrowserRouter>
   );
 };
