@@ -1,0 +1,18 @@
+.Message {
+  background-color: #1c1921;
+  border-radius: 5px;
+  display: grid;
+  grid-gap: 10px;
+  margin: 10px;
+  padding: 10px;
+}
+.Message div p {
+  margin: 0;
+  font-size: 14px;
+}
+.Message-Username p {
+  color: #c4c4c4;
+}
+.Message-Content {
+  color: white;
+}
