@@ -1,0 +1,10 @@
+.ChatHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #252329;
+  padding: 10px;
+}
+.ChatHeader div h1 {
+  font-weight: 400;
+}

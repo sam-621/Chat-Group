@@ -20,6 +20,10 @@ module.exports = {
         test: /\.css$/i,
         use: ['style-loader', 'css-loader'],
       },
+      {
+        test: /\.(jpg|jpeg|png|svg)$/,
+        use: 'file-loader',
+      },
     ],
   },
   plugins: [
