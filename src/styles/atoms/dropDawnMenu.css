@@ -1,0 +1,14 @@
+.DropDawnMenu {
+  background-color: #252329;
+  box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.75);
+  border-radius: 5px;
+  position: absolute;
+  left: 226px;
+  top: 46px;
+  padding: 10px;
+}
+.DropDawnMenu p {
+  text-align: center;
+  margin: 0;
+  color: #d32626;
+}
