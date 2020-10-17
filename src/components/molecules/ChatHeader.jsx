@@ -12,7 +12,7 @@ const ChatHeader = () => {
       <div>
         <Title content="Chat group" />
       </div>
-      <div>
+      <div className="ChatHeader-Options">
         <img
           onClick={() => setShowMenu(!showMenu)}
           src={Options}

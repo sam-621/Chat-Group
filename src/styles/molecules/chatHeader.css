@@ -8,3 +8,6 @@
 .ChatHeader div h1 {
   font-weight: 400;
 }
+.ChatHeader-Options {
+  cursor: pointer;
+}
