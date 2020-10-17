@@ -11,12 +11,15 @@ const ChatMessages = () => {
   useEffect(() => {
     socket.on('chat message', (msg) => {
       setMessages([...messages, msg]);
+      const chatContainer = document.getElementById('Chat');
+      chatContainer.scrollTop = chatContainer.scrollHeight;
+      window.scrollTo({ top: 100 });
     });
     return () => socket.off();
   });
 
   return (
-    <section className="ChatMessages">
+    <section id="Chat" className="ChatMessages">
       {messages.map((message, index) => {
         return (
           <Message

@@ -4,9 +4,10 @@
   border-radius: 5px;
 }
 .TypingBar-Form {
-  display: flex;
+  display: grid;
   justify-content: space-between;
   align-items: center;
+  grid-template-columns: 1fr auto;
   padding: 5px;
 }
 .TypingBar-Form div input[type='text'] {
@@ -15,6 +16,7 @@
   color: white;
   font-size: 16px;
   font-family: 'Roboto', sans-serif;
+  width: 98%;
 }
 .TypingBar-InputSubmit {
   background-color: #0779e4;

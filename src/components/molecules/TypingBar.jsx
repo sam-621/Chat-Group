@@ -11,6 +11,9 @@ const TypingBar = () => {
   });
   function senMessage(e) {
     e.preventDefault();
+    if (message.msg === '') {
+      return;
+    }
     socket.emit('chat message', message);
     setMessage({ msg: '' });
   }
@@ -30,7 +33,7 @@ const TypingBar = () => {
             value={message.msg}
           />
         </div>
-        <div className="TypingBar-InputSubmit">
+        <div onClick={senMessage} className="TypingBar-InputSubmit">
           <img src={Send} alt="Send button" width="30px" height="30px" />
         </div>
       </form>
