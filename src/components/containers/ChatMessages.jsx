@@ -19,7 +19,11 @@ const ChatMessages = () => {
     <section className="ChatMessages">
       {messages.map((message, index) => {
         return (
-          <Message key={index} username={'temporal'} messageContent={message} />
+          <Message
+            key={index}
+            username={message.username}
+            messageContent={message.msg}
+          />
         );
       })}
     </section>

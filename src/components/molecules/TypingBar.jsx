@@ -5,11 +5,14 @@ import Send from '../../img/send.svg';
 import socket from '../atoms/Socket';
 
 const TypingBar = () => {
-  const [message, setMessage] = useState('');
+  const [message, setMessage] = useState({
+    username: sessionStorage.getItem('username'),
+    msg: '',
+  });
   function senMessage(e) {
     e.preventDefault();
     socket.emit('chat message', message);
-    setMessage('');
+    setMessage({ msg: '' });
   }
   return (
     <div className="TypingBar">
@@ -18,8 +21,13 @@ const TypingBar = () => {
           <input
             type="text"
             placeholder="Type your message"
-            onChange={(e) => setMessage(e.target.value)}
-            value={message}
+            onChange={(e) =>
+              setMessage({
+                msg: e.target.value,
+                username: sessionStorage.getItem('username'),
+              })
+            }
+            value={message.msg}
           />
         </div>
         <div className="TypingBar-InputSubmit">
