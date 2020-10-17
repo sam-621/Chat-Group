@@ -6,6 +6,7 @@ const DropDawnMenu = () => {
   const [redirect, setRedirect] = useState(false);
   function logOut() {
     sessionStorage.removeItem('username');
+    sessionStorage.removeItem('ID');
     setRedirect(true);
   }
 
