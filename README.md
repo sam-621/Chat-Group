@@ -4,7 +4,7 @@ A web application where you can join a group and chat with people that is in the
 
 Demo: [ChatGroup](https://chatgroup.netlify.app/)
 
-![Project screenshot](./Docs/screenshot.png 'Project screenshot')
+![Project screenshot](./Docs/screenshot.png "Project screenshot")
 
 # Built with
 
