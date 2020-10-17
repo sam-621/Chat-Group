@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Redirect } from 'react-router-dom';
+import { v4 as uuidv4 } from 'uuid';
 import '../../styles/containers/registerContainer.css';
 
 const RegisterContainer = () => {
@@ -13,6 +14,7 @@ const RegisterContainer = () => {
       return;
     }
     sessionStorage.setItem('username', username);
+    sessionStorage.setItem('ID', uuidv4());
     setRedirect(true);
   }
   return redirect ? (

@@ -14,4 +14,16 @@ const Message = ({ username, messageContent }) => {
   );
 };
 
-export default Message;
+const MyMessage = ({ username, messageContent }) => {
+  return (
+    <article className="MyMessage">
+      <div className="Message-Username">
+        <p>{username}</p>
+      </div>
+      <div className="Message-Content">
+        <p>{messageContent}</p>
+      </div>
+    </article>
+  );
+};
+export { Message, MyMessage };

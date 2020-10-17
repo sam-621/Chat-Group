@@ -2,11 +2,12 @@ import React, { useState, useEffect } from 'react';
 import '../../styles/containers/chatMessages.css';
 import socket from '../atoms/Socket';
 
-import { Message } from '../molecules/';
+import { Message, MyMessage } from '../molecules/';
 import { fakeMessages } from '../../utils/fakeMessages';
 
 const ChatMessages = () => {
   const [messages, setMessages] = useState([]);
+  const [ID, setID] = useState(sessionStorage.getItem('ID'));
 
   useEffect(() => {
     socket.on('chat message', (msg) => {
@@ -21,7 +22,13 @@ const ChatMessages = () => {
   return (
     <section id="Chat" className="ChatMessages">
       {messages.map((message, index) => {
-        return (
+        return ID && ID === message.ID ? (
+          <MyMessage
+            key={index}
+            username={message.username}
+            messageContent={message.msg}
+          />
+        ) : (
           <Message
             key={index}
             username={message.username}

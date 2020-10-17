@@ -1,5 +1,5 @@
 import ChatHeader from './ChatHeader';
 import TypingBar from './TypingBar';
-import Message from './Message';
+import { Message, MyMessage } from './Message';
 
-export { ChatHeader, TypingBar, Message };
+export { ChatHeader, TypingBar, Message, MyMessage };

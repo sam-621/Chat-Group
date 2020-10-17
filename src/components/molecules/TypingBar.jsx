@@ -8,6 +8,7 @@ const TypingBar = () => {
   const [message, setMessage] = useState({
     username: sessionStorage.getItem('username'),
     msg: '',
+    ID: sessionStorage.getItem('ID'),
   });
   function senMessage(e) {
     e.preventDefault();
@@ -28,6 +29,7 @@ const TypingBar = () => {
               setMessage({
                 msg: e.target.value,
                 username: sessionStorage.getItem('username'),
+                ID: sessionStorage.getItem('ID'),
               })
             }
             value={message.msg}
