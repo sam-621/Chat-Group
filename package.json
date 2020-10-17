@@ -4,7 +4,9 @@
   "description": "A web application where you can join a group and chat with people that is in there.",
   "main": "src/index.jsx",
   "scripts": {
-    "dev": "webpack serve --config webpack.config.dev.js --open chrome"
+    "dev": "webpack serve --config webpack.config.dev.js --open chrome",
+    "build": "webpack --config webpack.config.prod.js",
+    "start": "http-server ./dist/ --proxy http://localhost:8080? -o"
   },
   "repository": {
     "type": "git",
