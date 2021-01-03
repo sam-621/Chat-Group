@@ -1,14 +1,18 @@
 .TypingBar {
-  background-color: #3c393f;
-  margin: 0 10px 10px 10px;
-  border-radius: 5px;
+  margin-bottom: 10px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
 }
 .TypingBar-Form {
+  border-radius: 5px;
+  background-color: #3c393f;
   display: grid;
   justify-content: space-between;
   align-items: center;
   grid-template-columns: 1fr auto;
   padding: 5px;
+  margin: 0 10px;
 }
 .TypingBar-Form div input[type='text'] {
   border: none;
