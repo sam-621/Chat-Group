@@ -1,0 +1,28 @@
+{
+  "name": "chat-group",
+  "version": "1.0.0",
+  "description": "A web application where you can send messages in a public chat in real time, login, register and see your profile",
+  "main": "src/pages/_app.tsx",
+  "scripts": {
+    "test": "yarn test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rogeliosamuel621/Chat-Group.git"
+  },
+  "keywords": [
+    "Chat",
+    "Socket.io",
+    "Nextjs",
+    "Frontend",
+    "arquitecture",
+    "real",
+    "time"
+  ],
+  "author": "Rogelio Samuel <@rogeliosamuel21>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rogeliosamuel621/Chat-Group/issues"
+  },
+  "homepage": "https://github.com/rogeliosamuel621/Chat-Group#readme"
+}
