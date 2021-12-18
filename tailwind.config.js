@@ -11,6 +11,9 @@ module.exports = {
         'input-border': '#E2E8F0',
         'error-text': '#F10E0E',
         'error-bg': 'rgba(241, 14, 14, 0.1)'
+      },
+      fontFamily: {
+        roboto: ['roboto']
       }
     }
   },
