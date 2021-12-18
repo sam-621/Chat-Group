@@ -1,3 +1,3 @@
 export const Logo = () => {
-  return <h1 className="font-roboto text-primary">Chat Group</h1>
+  return <h1 className="font-roboto text-primary font-medium text-3xl">Chat Group</h1>
 }
