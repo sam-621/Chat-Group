@@ -14,6 +14,7 @@ Demo: In progress
 - Typescript
 - Socket.io
 - React query
+- Tailwincss
 
 ## Getting started
 
