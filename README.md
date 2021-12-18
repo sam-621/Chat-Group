@@ -14,26 +14,27 @@ Demo: In progress
 - Typescript
 - Socket.io
 - React query
-- Tailwincss
+- Tailwindcss
 
 ## Getting started
 
 ```
-npm install
+yarn install
+yarn husky install
 ```
 
 ### Development
 
 ```
-npm run dev
+yarn run dev
 ```
 
 ### Production
 
 ```
-npm run build
+yarn run build
 
-npm run start
+yarn run start
 ```
 
 ## Resources
