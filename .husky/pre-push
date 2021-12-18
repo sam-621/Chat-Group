@@ -1,4 +1,4 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-yarn tsc --noEmit && yarn eslint ./src && yarn prettier --write ./src
+yarn check:types && yarn lint && yarn format
