@@ -1,4 +1,4 @@
 import { IUser } from '@interfaces/user.interface'
 
-export type TLoginDto = Pick<IUser, 'email' | 'password'>
-export type TRegisterDto = Omit<IUser, 'profilePic'>
+export type TUserLoginDto = Pick<IUser, 'email' | 'password'>
+export type TUserRegisterDto = Omit<IUser, 'profilePic'>
