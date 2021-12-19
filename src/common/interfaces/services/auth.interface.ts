@@ -9,3 +9,8 @@ export interface ILoginResponse {
   token: string
   user: Omit<IUser, 'password'> & { _id: string }
 }
+
+export interface IRegisterResponse {
+  token: string
+  user: Omit<IUser, 'password'> & { _id: string }
+}
