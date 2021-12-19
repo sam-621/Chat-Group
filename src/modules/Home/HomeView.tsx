@@ -1,3 +1,9 @@
+import { GlobalChat } from '@components/containers/GlobalChat'
+
 export const HomeView = () => {
-  return <h1>works</h1>
+  return (
+    <main>
+      <GlobalChat />
+    </main>
+  )
 }
