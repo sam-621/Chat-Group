@@ -1,5 +1,6 @@
 import { API_DOMAIN, API_PORT, MODE } from '@constants/env.constants'
 import { IHeader, TRequestOptions } from '@interfaces/services/http-request.interface'
+import axios, { AxiosResponse } from 'axios'
 
 export default class HttpRequest {
   private apiPort: number
@@ -12,6 +13,7 @@ export default class HttpRequest {
     this.apiPort = API_PORT
     this.apiDomain = API_DOMAIN
     this.headers = {
+      authorization: '',
       'Content-Type': 'application/json'
     }
   }
@@ -21,44 +23,53 @@ export default class HttpRequest {
     this.endpoint = endpoint
   }
 
-  // protected addToken(token: string): void {
-  //   this.headers = {
-  //     ...this.headers,
-  //     authorization: token
-  //   }
-  // }
+  protected async get<T>(): Promise<AxiosResponse<T>> {
+    try {
+      return axios.get(this.urlBuilder(), { headers: this.headers })
+    } catch (error) {
+      if (!axios.isAxiosError(error)) {
+        throw new Error('An error has ocurred')
+      }
 
-  // public get(): Promise<AxiosResponse> {
-  //   try {
-  //     return axios.get(this.urlBuilder(), { headers: this.headers })
-  //   } catch (error) {
-  //     throw new Error(error.message)
-  //   }
-  // }
+      return error.response as AxiosResponse
+    }
+  }
 
-  // public post(data: unknown): Promise<AxiosResponse> {
-  //   try {
-  //     return axios.post(this.urlBuilder(), data, { headers: this.headers })
-  //   } catch (error) {
-  //     throw new Error(error.message)
-  //   }
-  // }
+  protected async post<T>(data: unknown): Promise<AxiosResponse<T>> {
+    try {
+      return axios.post(this.urlBuilder(), data, { headers: this.headers })
+    } catch (error) {
+      if (!axios.isAxiosError(error)) {
+        throw new Error('An error has ocurred')
+      }
 
-  // public put(data: unknown): Promise<AxiosResponse> {
-  //   try {
-  //     return axios.put(this.urlBuilder(), data, { headers: this.headers })
-  //   } catch (error) {
-  //     throw new Error(error.message)
-  //   }
-  // }
+      return error.response as AxiosResponse
+    }
+  }
 
-  // public delete(): Promise<AxiosResponse> {
-  //   try {
-  //     return axios.delete(this.urlBuilder(), { headers: this.headers })
-  //   } catch (error) {
-  //     throw new Error(error.message)
-  //   }
-  // }
+  protected async put<T>(data: unknown): Promise<AxiosResponse<T>> {
+    try {
+      return axios.put(this.urlBuilder(), data, { headers: this.headers })
+    } catch (error) {
+      if (!axios.isAxiosError(error)) {
+        throw new Error('An error has ocurred')
+      }
+
+      return error.response as AxiosResponse
+    }
+  }
+
+  protected async delete<T>(): Promise<AxiosResponse<T>> {
+    try {
+      return axios.delete(this.urlBuilder(), { headers: this.headers })
+    } catch (error) {
+      if (!axios.isAxiosError(error)) {
+        throw new Error('An error has ocurred')
+      }
+
+      return error.response as AxiosResponse
+    }
+  }
 
   private urlBuilder(): string {
     const port = MODE === 'development' ? this.apiPort : ''

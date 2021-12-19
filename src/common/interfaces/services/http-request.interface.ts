@@ -1,5 +1,7 @@
-export interface IHeader {
-  authorization?: string
+import { AxiosRequestHeaders } from 'axios'
+
+export interface IHeader extends AxiosRequestHeaders {
+  authorization: string
   'Content-Type': string
 }
 
