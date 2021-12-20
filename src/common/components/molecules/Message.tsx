@@ -3,14 +3,22 @@ import { FC } from 'react'
 
 export const Message: FC<Props> = ({ isOwner, userImage, username, content }) => {
   return (
-    <article>
-      <div>
-        {/* user image */}
-        <Image src={userImage} alt={username} />
-      </div>
-      <div>
-        <span>{username}</span>
-        <p>{content}</p>
+    <article className={`flex gap-5 mb-5 ${isOwner ? 'ml-16' : 'mr-12'}`}>
+      {!isOwner && (
+        <div className="flex items-end">
+          {/* user image */}
+          <Image
+            className="border rounded-full"
+            src={userImage}
+            alt={username}
+            width="40px"
+            height="40px"
+          />
+        </div>
+      )}
+      <div className={`${isOwner ? 'bg-primary' : 'bg-secondary'} rounded-xl p-2`}>
+        {!isOwner && <span className="text-gray-400 mb-1">{username}</span>}
+        <p className={`${isOwner ? 'text-white' : 'text-text-black'}`}>{content}</p>
       </div>
     </article>
   )
