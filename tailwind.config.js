@@ -18,6 +18,9 @@ module.exports = {
       },
       fontFamily: {
         roboto: ['roboto']
+      },
+      gridTemplateRows: {
+        'global-chat': 'auto 1fr auto'
       }
     }
   },
