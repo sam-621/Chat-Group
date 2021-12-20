@@ -5,7 +5,7 @@ export const HomeView = () => {
   return (
     <div className="h-screen grid Home-view-layout">
       <Nav />
-      <main className="grid grid-cols-5 h-full mx-20">
+      <main className="grid grid-cols-8 h-full mx-20">
         <GlobalChat />
         <div>hi</div>
       </main>
