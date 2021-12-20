@@ -1,0 +1,7 @@
+.Home-view-layout {
+  grid-template-rows: auto 1fr;
+}
+
+.Global-chat-layout {
+  grid-template-rows: 1fr auto;
+}
