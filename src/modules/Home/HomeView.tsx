@@ -11,7 +11,7 @@ export const HomeView = () => {
       }}
     >
       <Nav />
-      <main className="grid grid-cols-3 h-full">
+      <main className="grid grid-cols-5 h-full mx-20">
         <GlobalChat />
         <div>hi</div>
       </main>
