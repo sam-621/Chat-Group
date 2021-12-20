@@ -1,8 +1,9 @@
 import Image from 'next/image'
+import { FC } from 'react'
 
-export const InputMessage = () => {
+export const InputMessage: FC<Props> = ({ className }) => {
   return (
-    <form className="flex h-12 border-2 border-input-border rounded">
+    <form className={`flex h-12 border-2 border-input-border rounded ${className}`}>
       <input
         type="text"
         placeholder="Type a message"
@@ -13,4 +14,8 @@ export const InputMessage = () => {
       </button>
     </form>
   )
+}
+
+type Props = {
+  className?: string
 }
