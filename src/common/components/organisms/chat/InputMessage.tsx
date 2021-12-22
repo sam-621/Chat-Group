@@ -7,7 +7,7 @@ export const InputMessage: FC<Props> = ({ className }) => {
       <input
         type="text"
         placeholder="Type a message"
-        className=" pl-5 w-full outline-none  text-text-black"
+        className=" pl-5 w-full outline-none text-text-black"
       />
       <button type="submit" className="flex items-center mr-2">
         <Image src="/icons/send.svg" alt="Send" width="34px" height="34px" />
