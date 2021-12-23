@@ -17,6 +17,7 @@ export const buildPublicMessage = (
     id: v4(),
     message,
     owner: {
+      id: user?._id || '',
       profilePic: user?.profilePic || DEFAULT_USER_IMAGE,
       username: user?.username || 'Anonymous'
     }

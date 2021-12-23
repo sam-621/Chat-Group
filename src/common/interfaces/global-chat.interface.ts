@@ -5,6 +5,7 @@ export interface IGlobalChatDto {
 }
 
 export interface IGlobalChatOwner {
+  id: string
   profilePic: string
   username: string
 }
