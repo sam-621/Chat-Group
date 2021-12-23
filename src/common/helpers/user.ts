@@ -13,4 +13,8 @@ export const generateUserId = () => {
  * Helper which gives you the user id when user is not logged
  * @returns user id
  */
-export const getUserIdFromSS = () => window.sessionStorage.getItem(USER_ID_SS_FIELD)
+export const getUserIdFromSS = () => {
+  if (window === undefined) return ''
+
+  return window.sessionStorage.getItem(USER_ID_SS_FIELD) || ''
+}

@@ -2,6 +2,7 @@ import { getUserProfile } from '@apis/user.api'
 import { USER_PROFILE } from '@constants/cache.constants'
 import { PUBLIC_CHAT } from '@constants/socket.constants'
 import { buildPublicMessage } from '@helpers/chat'
+import { generateUserId } from '@helpers/user'
 import { IGlobalChatDto } from '@interfaces/global-chat.interface'
 import { socket } from 'common/sockets/connection'
 import { FormEvent, useEffect, useState } from 'react'
@@ -35,6 +36,7 @@ export const useGlobalChat = (input: TUseInput) => {
    * Get messages from server and update the current message state
    */
   useEffect(() => {
+    generateUserId()
     socket.on(PUBLIC_CHAT, (socket: IGlobalChatDto) => {
       setMessage(socket)
     })

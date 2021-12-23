@@ -1,17 +1,23 @@
+import { getUserProfile } from '@apis/user.api'
 import { Message } from '@components/molecules/Message'
 import { InputMessage } from '@components/organisms/chat/InputMessage'
+import { USER_PROFILE } from '@constants/cache.constants'
+import { getUserIdFromSS } from '@helpers/user'
 import { useGlobalChat } from '@hooks/useGlobalChat'
 import { useInput } from '@hooks/useInput'
+import useSWR from 'swr'
 
 export const GlobalChat = () => {
   const inputMessage = useInput('text')
   const { messages, sendMessage } = useGlobalChat(inputMessage)
+  const { data } = useSWR(USER_PROFILE, getUserProfile)
 
   return (
     <section className="flex w-2/3 flex-col">
       <div className="flex-1 overflow-y-scroll ">
         {messages.map((message) => (
           <Message
+            isOwner={message.owner.id === (data?._id || getUserIdFromSS())}
             key={message.id}
             userImage={message.owner.profilePic}
             username={message.owner.username}

@@ -7,7 +7,7 @@ export const HomeView = () => {
       <Nav />
       <main className="flex flex-1 mx-20 h-4/5 mb-10">
         <GlobalChat />
-        <div>hi</div>
+        <div></div>
       </main>
     </div>
   )

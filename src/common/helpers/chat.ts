@@ -2,6 +2,7 @@ import { IGlobalChatDto } from '@interfaces/global-chat.interface'
 import { TUserProfileResponse } from '@interfaces/services/user.interface'
 import { v4 } from 'uuid'
 import { DEFAULT_USER_IMAGE } from './images'
+import { getUserIdFromSS } from './user'
 
 /**
  * Helper which gives you the structure for message
@@ -17,7 +18,7 @@ export const buildPublicMessage = (
     id: v4(),
     message,
     owner: {
-      id: user?._id || '',
+      id: user?._id || getUserIdFromSS(),
       profilePic: user?.profilePic || DEFAULT_USER_IMAGE,
       username: user?.username || 'Anonymous'
     }

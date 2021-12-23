@@ -3,7 +3,7 @@ import { FC } from 'react'
 
 export const Message: FC<Props> = ({ isOwner, userImage, username, content }) => {
   return (
-    <article className={`flex gap-5 mb-5 ${isOwner ? 'ml-16' : 'mr-12'}`}>
+    <article className={`flex gap-5 mb-5 ${isOwner ? 'ml-16 justify-end' : 'mr-12'}`}>
       {!isOwner && (
         <div className="flex items-end">
           {/* user image */}
