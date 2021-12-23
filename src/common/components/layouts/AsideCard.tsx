@@ -1,7 +1,9 @@
+import { WelcomeCard } from '@components/containers/WelcomeCard'
+
 export const AsideCard = () => {
   return (
     <section>
-      <div></div>
+      <WelcomeCard />
     </section>
   )
 }
