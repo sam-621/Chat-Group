@@ -7,6 +7,7 @@ import { TUseInput } from './useInput'
 
 export const useGlobalChat = (input: TUseInput) => {
   const [messages, setMessages] = useState<IGlobalChatDto[]>([])
+  const [message, setMessage] = useState<IGlobalChatDto>()
   const currentMessage = input.value
 
   /**
@@ -16,7 +17,7 @@ export const useGlobalChat = (input: TUseInput) => {
    */
   const sendMessage = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    if (!messages) return
+    if (!input.value) return
 
     const messageToSend = buildPublicMessage(currentMessage, {
       email: '',
@@ -26,17 +27,27 @@ export const useGlobalChat = (input: TUseInput) => {
     })
 
     socket.emit(PUBLIC_CHAT, messageToSend)
+    input.cleanUp()
   }
 
   /**
-   * Get messages from server and update state
+   * Get messages from server and update the current message state
    */
   useEffect(() => {
     socket.on(PUBLIC_CHAT, (socket: IGlobalChatDto) => {
-      setMessages([...messages, socket])
+      setMessage(socket)
     })
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
+
+  /**
+   * Update messages state to re render
+   */
+  useEffect(() => {
+    if (!message) return
+    setMessages([...messages, message as IGlobalChatDto])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [message])
 
   return {
     messages,

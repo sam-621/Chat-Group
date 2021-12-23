@@ -13,9 +13,14 @@ export const useInput = (type: TInputType): TUseInput => {
     setValue(e.target.value)
   }
 
+  const cleanUp = () => {
+    setValue('')
+  }
+
   return {
     value,
     type,
+    cleanUp,
     onChange
   }
 }
@@ -23,5 +28,6 @@ export const useInput = (type: TInputType): TUseInput => {
 export type TUseInput = {
   value: string
   type: TInputType
+  cleanUp: () => void
   onChange: (e: ChangeEvent<HTMLInputElement>) => void
 }
