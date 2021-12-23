@@ -1,11 +1,17 @@
+import { TInputType } from '@interfaces/utils.interface'
 import Image from 'next/image'
-import { FC } from 'react'
+import { ChangeEvent, FC, FormEvent } from 'react'
 
-export const InputMessage: FC<Props> = ({ className }) => {
+export const InputMessage: FC<Props> = ({ className, value, type, onChange, onSubmit }) => {
   return (
-    <form className={`flex h-12 border-2 border-input-border rounded ${className}`}>
+    <form
+      className={`flex h-12 border-2 border-input-border rounded ${className}`}
+      onSubmit={onSubmit}
+    >
       <input
-        type="text"
+        type={type}
+        onChange={onChange}
+        value={value}
         placeholder="Type a message"
         className=" pl-5 w-full outline-none text-text-black"
       />
@@ -18,4 +24,8 @@ export const InputMessage: FC<Props> = ({ className }) => {
 
 type Props = {
   className?: string
+  value: string
+  type: TInputType
+  onChange: (e: ChangeEvent<HTMLInputElement>) => void
+  onSubmit: (e: FormEvent<HTMLFormElement>) => void
 }
