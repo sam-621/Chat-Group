@@ -1,6 +1,7 @@
 import { API_DOMAIN, API_PORT, MODE } from '@constants/env.constants'
 import { IHeader, TRequestOptions } from '@interfaces/services/http-request.interface'
 import axios, { AxiosResponse } from 'axios'
+import jsCookie from 'js-cookie'
 
 export default class HttpRequest {
   private apiPort: number
@@ -21,6 +22,13 @@ export default class HttpRequest {
   protected configRequest(config: TRequestOptions) {
     const { endpoint } = config
     this.endpoint = endpoint
+  }
+
+  protected useToken(token = jsCookie.get('token') || '') {
+    this.headers = {
+      ...this.headers,
+      authorization: token
+    }
   }
 
   protected async get<T>(): Promise<AxiosResponse<T>> {
