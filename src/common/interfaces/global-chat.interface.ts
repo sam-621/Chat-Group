@@ -1,4 +1,5 @@
 export interface IGlobalChatDto {
+  id: string
   message: string
   owner: IGlobalChatOwner
 }

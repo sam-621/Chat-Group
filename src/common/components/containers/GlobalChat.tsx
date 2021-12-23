@@ -11,9 +11,9 @@ export const GlobalChat = () => {
     <section className="flex w-2/3 flex-col">
       <div className="flex-1 overflow-y-scroll ">
         {Boolean(messages.length) &&
-          messages.map((message, i) => (
+          messages.map((message) => (
             <Message
-              key={i + 'hi'}
+              key={message.id}
               userImage={message.owner.profilePic || '/icons/defautl-user.svg'}
               username={message.owner.username}
               content={message.message}
