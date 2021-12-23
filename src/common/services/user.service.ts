@@ -3,7 +3,7 @@ import { Response } from '@interfaces/response.interface'
 import { TUserProfileResponse } from '@interfaces/services/user.interface'
 import HttpRequest from './http-request.service'
 
-const URL_PREFIX = '/user/profile'
+const URL_PREFIX = 'user/profile'
 
 export class UserService extends HttpRequest {
   async getUserProfile(): Promise<ServiceResponse<TUserProfileResponse>> {

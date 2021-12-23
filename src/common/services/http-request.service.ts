@@ -34,7 +34,7 @@ export default class HttpRequest {
 
   protected async get<T>(): Promise<AxiosResponse<T>> {
     try {
-      return axios.get(this.urlBuilder(), { headers: this.headers })
+      return await axios.get(this.urlBuilder(), { headers: this.headers })
     } catch (error) {
       if (!axios.isAxiosError(error)) {
         throw new Error('An error has ocurred')
@@ -46,7 +46,7 @@ export default class HttpRequest {
 
   protected async post<T>(data: unknown): Promise<AxiosResponse<T>> {
     try {
-      return axios.post(this.urlBuilder(), data, { headers: this.headers })
+      return await axios.post(this.urlBuilder(), data, { headers: this.headers })
     } catch (error) {
       if (!axios.isAxiosError(error)) {
         throw new Error('An error has ocurred')
@@ -58,7 +58,7 @@ export default class HttpRequest {
 
   protected async put<T>(data: unknown): Promise<AxiosResponse<T>> {
     try {
-      return axios.put(this.urlBuilder(), data, { headers: this.headers })
+      return await axios.put(this.urlBuilder(), data, { headers: this.headers })
     } catch (error) {
       if (!axios.isAxiosError(error)) {
         throw new Error('An error has ocurred')
@@ -70,7 +70,7 @@ export default class HttpRequest {
 
   protected async delete<T>(): Promise<AxiosResponse<T>> {
     try {
-      return axios.delete(this.urlBuilder(), { headers: this.headers })
+      return await axios.delete(this.urlBuilder(), { headers: this.headers })
     } catch (error) {
       if (!axios.isAxiosError(error)) {
         throw new Error('An error has ocurred')

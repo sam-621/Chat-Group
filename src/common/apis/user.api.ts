@@ -1,12 +1,14 @@
+import { TUserProfileResponse } from '@interfaces/services/user.interface'
 import { UserService } from '@services/user.service'
 
 const userService = new UserService()
 
-export const getUser = async () => {
+export const getUserProfile = async (): Promise<TUserProfileResponse> => {
   const { data, response } = await userService.getUserProfile()
 
-  console.log({
-    data,
-    response
-  })
+  if (!data) {
+    throw response
+  }
+
+  return data
 }

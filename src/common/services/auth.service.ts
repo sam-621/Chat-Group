@@ -8,7 +8,7 @@ import {
 } from '@interfaces/services/auth.interface'
 import HttpRequest from './http-request.service'
 
-const URL_PREFIX = '/user/auth'
+const URL_PREFIX = 'user/auth'
 
 export class AuthService extends HttpRequest {
   async login(user: TUserLoginDto): Promise<ServiceResponse<ILoginResponse>> {

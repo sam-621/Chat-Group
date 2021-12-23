@@ -13,7 +13,7 @@ export const GlobalChat = () => {
         {messages.map((message) => (
           <Message
             key={message.id}
-            userImage={message.owner.profilePic || '/icons/defautl-user.svg'}
+            userImage={message.owner.profilePic}
             username={message.owner.username}
             content={message.message}
           />
