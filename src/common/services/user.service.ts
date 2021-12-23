@@ -6,7 +6,7 @@ import HttpRequest from './http-request.service'
 const URL_PREFIX = '/user/profile'
 
 export class UserService extends HttpRequest {
-  async getUserProfile() {
+  async getUserProfile(): Promise<ServiceResponse<TUserProfileResponse>> {
     this.configRequest({ endpoint: `${URL_PREFIX}/information` })
     this.useToken()
 
