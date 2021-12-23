@@ -1,9 +1,9 @@
 import '../styles/main.css'
 import type { AppProps } from 'next/app'
-import { connectSocket } from '@modules/Socket/connection'
+import { connectSockets } from '@modules/Sockets/connection'
 
 function MyApp({ Component, pageProps }: AppProps) {
-  connectSocket()
+  connectSockets()
   return (
     <>
       <Component {...pageProps} />
