@@ -1,3 +1,4 @@
+import { TOKEN_FIELD } from '@constants/cookies.constants'
 import { API_DOMAIN, API_PORT, MODE } from '@constants/env.constants'
 import { IHeader, TRequestOptions } from '@interfaces/services/http-request.interface'
 import axios, { AxiosResponse } from 'axios'
@@ -24,7 +25,7 @@ export default class HttpRequest {
     this.endpoint = endpoint
   }
 
-  protected useToken(token = jsCookie.get('token') || '') {
+  protected useToken(token = jsCookie.get(TOKEN_FIELD) || '') {
     this.headers = {
       ...this.headers,
       authorization: token
