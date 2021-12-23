@@ -10,15 +10,14 @@ export const GlobalChat = () => {
   return (
     <section className="flex w-2/3 flex-col">
       <div className="flex-1 overflow-y-scroll ">
-        {Boolean(messages.length) &&
-          messages.map((message) => (
-            <Message
-              key={message.id}
-              userImage={message.owner.profilePic || '/icons/defautl-user.svg'}
-              username={message.owner.username}
-              content={message.message}
-            />
-          ))}
+        {messages.map((message) => (
+          <Message
+            key={message.id}
+            userImage={message.owner.profilePic || '/icons/defautl-user.svg'}
+            username={message.owner.username}
+            content={message.message}
+          />
+        ))}
       </div>
       <InputMessage className="mt-14" {...inputMessage} onSubmit={sendMessage} />
     </section>
