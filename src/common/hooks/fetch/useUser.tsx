@@ -1,13 +1,13 @@
 import { getUserProfile } from '@apis/user.api'
 import { USER_PROFILE } from '@constants/cache.constants'
-import { useQuery } from 'react-query'
+import useSWR from 'swr'
 
 export const useUser = () => {
-  const { data, error, isLoading } = useQuery(USER_PROFILE, getUserProfile)
+  const { data, error } = useSWR(USER_PROFILE, getUserProfile)
 
   return {
     data,
     error,
-    isLoading: isLoading
+    isLoading: !data && !error
   }
 }
