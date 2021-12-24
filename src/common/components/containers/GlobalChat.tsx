@@ -1,16 +1,14 @@
-import { getUserProfile } from '@apis/user.api'
 import { Message } from '@components/molecules/Message'
 import { InputMessage } from '@components/organisms/chat/InputMessage'
-import { USER_PROFILE } from '@constants/cache.constants'
 import { getUserIdFromSS } from '@helpers/user'
+import { useUser } from '@hooks/fetch/useUser'
 import { useGlobalChat } from '@hooks/useGlobalChat'
 import { useInput } from '@hooks/useInput'
-import useSWR from 'swr'
 
 export const GlobalChat = () => {
   const inputMessage = useInput('text')
   const { messages, sendMessage } = useGlobalChat(inputMessage)
-  const { data } = useSWR(USER_PROFILE, getUserProfile)
+  const { data } = useUser()
 
   return (
     <section className="flex w-2/3 flex-col">
