@@ -1,5 +1,6 @@
 import { GlobalChat } from '@components/containers/GlobalChat'
 import { Nav } from '@components/containers/Nav'
+import { AsideCard } from '@components/layouts/AsideCard'
 
 export const HomeView = () => {
   return (
@@ -7,7 +8,7 @@ export const HomeView = () => {
       <Nav />
       <main className="flex flex-1 mx-20 h-4/5 mb-10">
         <GlobalChat />
-        <div></div>
+        <AsideCard />
       </main>
     </div>
   )
