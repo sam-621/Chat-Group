@@ -83,6 +83,6 @@ export default class HttpRequest {
   private urlBuilder(): string {
     const port = MODE === 'development' ? this.apiPort : ''
 
-    return `${this.apiDomain}${port}/${this.endpoint}`
+    return `${this.apiDomain}:${port}/${this.endpoint}`
   }
 }
