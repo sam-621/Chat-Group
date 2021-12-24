@@ -1,10 +1,9 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { PUBLIC_CHAT } from '@constants/socket.constants'
 import { buildPublicMessage } from '@helpers/chat'
 import { generateUserId } from '@helpers/user'
 import { IGlobalChatDto } from '@interfaces/global-chat.interface'
-import { socket } from 'common/sockets/connection'
-import { emitMessage } from 'common/sockets/emiters'
+import { emitMessage } from 'common/sockets/emitters'
+import { listenForGlobalMessages } from 'common/sockets/listeners'
 import { FormEvent, useEffect, useState } from 'react'
 import { useUser } from './fetch/useUser'
 import { TUseInput } from './useInput'
@@ -33,13 +32,12 @@ export const useGlobalChat = (input: TUseInput) => {
   }
 
   /**
+   * Generate user id when user is not logged in
    * Get messages from server and update the current message state
    */
   useEffect(() => {
     generateUserId()
-    socket.on(PUBLIC_CHAT, (socket: IGlobalChatDto) => {
-      setMessage(socket)
-    })
+    listenForGlobalMessages(setMessage)
   }, [])
 
   /**
