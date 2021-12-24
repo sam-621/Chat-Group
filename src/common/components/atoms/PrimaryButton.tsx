@@ -9,5 +9,5 @@ export const PrimaryButton: FC<Props> = ({ children, onClick, className }) => {
 }
 
 type Props = DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement> & {
-  onClick?: () => void
+  onClick: () => void
 }

@@ -1,4 +1,4 @@
-import { PrimaryButton } from '@components/atoms/PrimaryButton'
+import { PrimaryLink } from '@components/atoms/PrimaryLink'
 import { Strong } from '@components/atoms/Strong'
 import { DEFAULT_USER_IMAGE } from '@helpers/images'
 import Image from 'next/image'
@@ -13,7 +13,9 @@ export const WelcomeCard = () => {
         <p className="text-center">
           Send <Strong>messages</Strong> in real time and meet new <Strong>people</Strong>
         </p>
-        <PrimaryButton className="py-5">Get in with email</PrimaryButton>
+        <PrimaryLink href="/register" className="py-5">
+          Get in with email
+        </PrimaryLink>
       </div>
     </div>
   )
