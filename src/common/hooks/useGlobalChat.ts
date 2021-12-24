@@ -1,8 +1,10 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { PUBLIC_CHAT } from '@constants/socket.constants'
 import { buildPublicMessage } from '@helpers/chat'
 import { generateUserId } from '@helpers/user'
 import { IGlobalChatDto } from '@interfaces/global-chat.interface'
 import { socket } from 'common/sockets/connection'
+import { emitMessage } from 'common/sockets/emiters'
 import { FormEvent, useEffect, useState } from 'react'
 import { useUser } from './fetch/useUser'
 import { TUseInput } from './useInput'
@@ -26,7 +28,7 @@ export const useGlobalChat = (input: TUseInput) => {
 
     const messageToSend = buildPublicMessage(currentMessage, data)
 
-    socket.emit(PUBLIC_CHAT, messageToSend)
+    emitMessage(messageToSend)
     input.cleanUp()
   }
 
@@ -38,7 +40,6 @@ export const useGlobalChat = (input: TUseInput) => {
     socket.on(PUBLIC_CHAT, (socket: IGlobalChatDto) => {
       setMessage(socket)
     })
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   /**
@@ -47,7 +48,6 @@ export const useGlobalChat = (input: TUseInput) => {
   useEffect(() => {
     if (!message) return
     setMessages([...messages, message as IGlobalChatDto])
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [message])
 
   return {
