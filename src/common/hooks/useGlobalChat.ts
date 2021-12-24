@@ -1,19 +1,17 @@
-import { getUserProfile } from '@apis/user.api'
-import { USER_PROFILE } from '@constants/cache.constants'
 import { PUBLIC_CHAT } from '@constants/socket.constants'
 import { buildPublicMessage } from '@helpers/chat'
 import { generateUserId } from '@helpers/user'
 import { IGlobalChatDto } from '@interfaces/global-chat.interface'
 import { socket } from 'common/sockets/connection'
 import { FormEvent, useEffect, useState } from 'react'
-import useSWR from 'swr'
+import { useUser } from './fetch/useUser'
 import { TUseInput } from './useInput'
 
 export const useGlobalChat = (input: TUseInput) => {
   const [messages, setMessages] = useState<IGlobalChatDto[]>([])
   const [message, setMessage] = useState<IGlobalChatDto>()
 
-  const { data } = useSWR(USER_PROFILE, getUserProfile)
+  const { data } = useUser()
 
   const currentMessage = input.value
 
