@@ -2,7 +2,7 @@
 
 A web application where you can send messages in a public chat in real time, login, register and see your profile [Here is the API for this app](https://github.com/rogeliosamuel621/Chat-Group-API)
 
-Demo: In progress
+Demo: [Chat group](https://chat-group-rs.vercel.app/)
 
 <!-- ![Project screenshot](./docs/screenshot.png 'Project screenshot') -->
 
