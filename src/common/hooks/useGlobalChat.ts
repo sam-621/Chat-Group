@@ -1,6 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { buildPublicMessage } from '@helpers/chat'
-import { generateUserId } from '@helpers/user'
 import { IGlobalChatDto } from '@interfaces/global-chat.interface'
 import { emitMessage } from 'common/sockets/emitters'
 import { listenForGlobalMessages } from 'common/sockets/listeners'
@@ -36,7 +35,6 @@ export const useGlobalChat = (input: TUseInput) => {
    * Get messages from server and update the current message state
    */
   useEffect(() => {
-    generateUserId()
     listenForGlobalMessages(setMessage)
   }, [])
 
