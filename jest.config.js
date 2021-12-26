@@ -26,7 +26,7 @@ const customJestConfig = {
     '^@hooks/(.*)$': '<rootDir>/src/common/hooks/$1',
     '^@interfaces/(.*)$': '<rootDir>/src/common/interfaces/$1',
     '^@services/(.*)$': '<rootDir>/src/common/services/$1',
-    '^@api/(.*)$': '<rootDir>/src/common/api/$1',
+    '^@apis/(.*)$': '<rootDir>/src/common/apis/$1',
     '^@state/(.*)$': '<rootDir>/src/common/state/$1',
     '\\.(css|scss)$': '<rootDir>/__mocks__/utils/styles/styleMock.ts'
   }

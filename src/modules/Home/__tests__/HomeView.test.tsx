@@ -1,8 +1,8 @@
-import { render } from '@testing-library/react'
-import { HomeView } from '../HomeView'
+import { GlobalChat } from '@components/containers/GlobalChat'
+import { mountComponent } from '../../../../__mocks__/utils/mountComponent'
 
 describe('Test', () => {
   test('test', () => {
-    render(<HomeView />)
+    mountComponent(<GlobalChat />)
   })
 })

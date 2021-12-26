@@ -1,5 +1,9 @@
-import { render, RenderOptions } from '@testing-library/react'
+import { act, render, RenderOptions, waitFor } from '@testing-library/react'
 
-export const mountComponent = (Component: JSX.Element, options?: RenderOptions) => {
-  render(<>{Component}</>, options)
+export const mountComponent = async (Component: JSX.Element, options?: RenderOptions) => {
+  await waitFor(() => {
+    act(() => {
+      render(<>{Component}</>, options)
+    })
+  })
 }
