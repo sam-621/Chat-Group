@@ -2,6 +2,7 @@ import { Title } from '@components/atoms/Title'
 import { GlobalChat } from '@components/containers/GlobalChat'
 import { Nav } from '@components/containers/Nav'
 import { AsideCard } from '@components/layouts/AsideCard'
+import { RegisterForm } from './components/RegisterForm'
 
 export const RegisterView = () => {
   return (
@@ -11,6 +12,7 @@ export const RegisterView = () => {
         <GlobalChat />
         <AsideCard>
           <Title />
+          <RegisterForm />
         </AsideCard>
       </main>
     </div>

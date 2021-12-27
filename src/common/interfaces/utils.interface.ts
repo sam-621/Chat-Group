@@ -1,5 +1,5 @@
 export type TInputType = 'text' | 'email' | 'password'
 
-export type HashMap<T = string> = {
+export type THashMap<T = string> = {
   [index: string]: T
 }

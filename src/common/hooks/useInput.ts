@@ -1,5 +1,5 @@
 import { TInputType } from '@interfaces/utils.interface'
-import { ChangeEvent, useState } from 'react'
+import { ChangeEvent, Dispatch, SetStateAction, useState } from 'react'
 
 /**
  * Hook which gives you the whole possibly logic for an input
@@ -7,6 +7,7 @@ import { ChangeEvent, useState } from 'react'
  * @returns value, onChange function, input type
  */
 export const useInput = (type: TInputType): TUseInput => {
+  const [error, setError] = useState('')
   const [value, setValue] = useState('')
 
   const onChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -20,14 +21,18 @@ export const useInput = (type: TInputType): TUseInput => {
   return {
     value,
     type,
+    errorMessage: error,
     cleanUp,
-    onChange
+    onChange,
+    setError
   }
 }
 
 export type TUseInput = {
   value: string
   type: TInputType
+  errorMessage: string
   cleanUp: () => void
   onChange: (e: ChangeEvent<HTMLInputElement>) => void
+  setError: Dispatch<SetStateAction<string>>
 }
