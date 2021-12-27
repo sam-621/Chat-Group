@@ -11,6 +11,7 @@ export const useAuth = () => {
   const manageUser = async () => {
     if (isLogged && authRoutes.includes(router.pathname)) {
       await router.push('/')
+      return
     }
 
     setIsLoading(false)
