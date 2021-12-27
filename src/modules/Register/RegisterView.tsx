@@ -1,3 +1,4 @@
+import { Title } from '@components/atoms/Title'
 import { GlobalChat } from '@components/containers/GlobalChat'
 import { Nav } from '@components/containers/Nav'
 import { AsideCard } from '@components/layouts/AsideCard'
@@ -8,7 +9,9 @@ export const RegisterView = () => {
       <Nav />
       <main className="flex flex-1 mx-20 h-4/5 mb-10 gap-40">
         <GlobalChat />
-        <AsideCard />
+        <AsideCard>
+          <Title />
+        </AsideCard>
       </main>
     </div>
   )

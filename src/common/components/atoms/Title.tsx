@@ -9,7 +9,7 @@ export const Title = ({ titleProp = '', backUrlProp = '' }) => {
   const title = titleProp || titles[router.pathname]
 
   return (
-    <div>
+    <div className="flex items-center px-2 pt-12">
       <div>
         <Link href={backUrl}>
           <a>
@@ -18,7 +18,7 @@ export const Title = ({ titleProp = '', backUrlProp = '' }) => {
         </Link>
       </div>
       <div>
-        <h1>{title}</h1>
+        <h1 className="text-primary bold font-bold text-3xl">{title}</h1>
       </div>
     </div>
   )
