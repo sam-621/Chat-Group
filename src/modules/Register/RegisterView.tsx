@@ -11,7 +11,7 @@ export const RegisterView = () => {
       <main className="flex flex-1 mx-20 h-4/5 mb-10 gap-40">
         <GlobalChat />
         <AsideCard>
-          <Title />
+          <Title className="mb-10" />
           <RegisterForm />
         </AsideCard>
       </main>

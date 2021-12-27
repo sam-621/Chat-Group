@@ -21,7 +21,7 @@ export const Input: FC<Props> = ({
   const hoverFocusHover = !hasError && 'hover:border-primary focus:border-primary'
 
   return (
-    <div className={`flex flex-col ${className}`}>
+    <div className={`flex flex-col gap-2 ${className}`}>
       <label htmlFor="">{placeHolderText}</label>
       <input
         type={type}
