@@ -1,4 +1,4 @@
-import { useUser } from '@hooks/fetch/useUser'
+import { useAuth } from '@hooks/useAuth'
 import { useUserId } from '@hooks/useUserId'
 import { createContext, FC, useContext } from 'react'
 
@@ -9,7 +9,7 @@ interface TInitialState {
 const AuthContext = createContext<TInitialState>({ isLogged: false })
 
 export const AuthProvider: FC = ({ children }) => {
-  const { data, isLoading } = useUser()
+  const { isLoading, isLogged } = useAuth()
   const { id } = useUserId()
 
   return (
@@ -19,7 +19,7 @@ export const AuthProvider: FC = ({ children }) => {
       ) : (
         <AuthContext.Provider
           value={{
-            isLogged: Boolean(data)
+            isLogged
           }}
         >
           {children}
