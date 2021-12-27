@@ -1,4 +1,5 @@
 import { Input } from '@components/atoms/Input'
+import { PrimaryButton } from '@components/atoms/PrimaryButton'
 import { useInput } from '@hooks/useInput'
 
 export const RegisterForm = () => {
@@ -11,6 +12,9 @@ export const RegisterForm = () => {
       <Input className="w-96" {...username} />
       <Input className="w-96" {...email} />
       <Input className="w-96" {...password} />
+      <PrimaryButton className="py-5 mx-4 mt-9" type="submit">
+        Create account
+      </PrimaryButton>
     </form>
   )
 }
