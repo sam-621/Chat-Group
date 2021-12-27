@@ -1,9 +1,5 @@
-import { WelcomeCard } from '@components/containers/WelcomeCard'
+import { FC } from 'react'
 
-export const AsideCard = () => {
-  return (
-    <section className="border shadow-md rounded">
-      <WelcomeCard />
-    </section>
-  )
+export const AsideCard: FC = ({ children }) => {
+  return <section className="border shadow-md rounded">{children}</section>
 }

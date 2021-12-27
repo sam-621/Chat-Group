@@ -1,9 +1,14 @@
 import { useAuth } from '@hooks/useAuth'
+import { RegisterView } from '@modules/Register/RegisterView'
 
 const RegisterPage = () => {
   const { isLoading } = useAuth()
 
-  return isLoading ? <h1>loading</h1> : <h1>register</h1>
+  if (isLoading) {
+    return <h1>Loading</h1>
+  }
+
+  return <RegisterView />
 }
 
 export default RegisterPage
