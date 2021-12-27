@@ -13,7 +13,7 @@ export const GlobalChat = () => {
 
   return (
     <section className="flex w-2/3 flex-col">
-      <div className="flex-1 overflow-y-scroll ">
+      <div className="flex-1 overflow-y-scroll">
         {messages.map((message) => (
           <Message
             isOwner={message.owner.id === (data?._id || id)}
