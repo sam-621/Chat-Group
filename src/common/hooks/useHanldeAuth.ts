@@ -1,6 +1,7 @@
 import { registerUser } from '@apis/auth.api'
 import { validateAuthFormData } from '@helpers/auth'
 import { TUserRegisterDto } from '@interfaces/services/auth.interface'
+import { showErrorMessage } from 'common/libs/toast.lib'
 import { useRouter } from 'next/router'
 
 export const useHandleAuth = () => {
@@ -12,18 +13,17 @@ export const useHandleAuth = () => {
     const { isValidData, message } = validateAuthFormData(email, password, username)
 
     if (!isValidData) {
-      console.log(message)
+      showErrorMessage(message)
       return
     }
 
     const { data, response } = await registerUser(user)
 
     if (!data) {
-      console.log(response.data.message)
+      showErrorMessage(response.data.message)
       return
     }
 
-    console.log('User registered')
     router.push('/')
   }
 
