@@ -1,3 +1,4 @@
+import { isValidEmail } from '@helpers/auth'
 import { TUseInput } from '@hooks/useInput'
 import { TUserRegisterDto } from '@interfaces/services/auth.interface'
 import { THandleSubmit } from '@interfaces/utils.interface'
@@ -25,6 +26,11 @@ export const useRegisterForm: TUseRegisterForm = (username, email, password, cb)
 
     if (!email.value) {
       setEmailError('Email must not be empty')
+      return
+    }
+
+    if (!isValidEmail(email.value)) {
+      setEmailError('Email format is not correct')
       return
     }
 
