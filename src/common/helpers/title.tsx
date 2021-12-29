@@ -1,6 +1,6 @@
-import { HashMap } from '@interfaces/utils.interface'
+import { THashMap } from '@interfaces/utils.interface'
 
-export const titles: HashMap = {
+export const titles: THashMap = {
   ['/login']: 'Login',
   ['/register']: 'Register'
 }
