@@ -1,7 +1,7 @@
 import { registerUser } from '@apis/auth.api'
 import { validateAuthFormData } from '@helpers/auth'
 import { TUserRegisterDto } from '@interfaces/services/auth.interface'
-import { showErrorMessage } from 'common/libs/toast.lib'
+import { showErrorMessage } from '@libs/toast.lib'
 import { useRouter } from 'next/router'
 
 export const useHandleAuth = () => {

@@ -33,7 +33,8 @@
       "@interfaces/*": ["common/interfaces/*"],
       "@services/*": ["common/services/*"],
       "@apis/*": ["common/apis/*"],
-      "@state/*": ["common/state/*"]
+      "@state/*": ["common/state/*"],
+      "@libs/*": ["common/libs/*"]
     }
 
   },
