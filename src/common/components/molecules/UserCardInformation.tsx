@@ -1,4 +1,5 @@
 import { PrimaryLink } from '@components/atoms/PrimaryLink'
+import { RedButton } from '@components/atoms/RedButton'
 import { Strong } from '@components/atoms/Strong'
 import { useUser } from '@hooks/fetch/useUser'
 import { useAuth } from '@hooks/useAuth'
@@ -14,6 +15,7 @@ export const UserCardInformation = () => {
           <PrimaryLink href="/edit/profile" className="py-4">
             Edit profile
           </PrimaryLink>
+          <RedButton className="py-4">Log out</RedButton>
         </div>
       ) : (
         <div className="flex flex-col gap-10">
