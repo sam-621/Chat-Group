@@ -4,7 +4,7 @@
   "description": "A web application where you can send messages in a public chat in real time, login, register and see your profile",
   "main": "src/pages/_app.tsx",
   "scripts": {
-    "test": "jest",
+    "test": "jest --passWithNoTests",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
