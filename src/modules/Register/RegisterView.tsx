@@ -1,3 +1,4 @@
+import { FooterForm } from '@components/atoms/FooterForm'
 import { Title } from '@components/atoms/Title'
 import { GlobalChat } from '@components/containers/GlobalChat'
 import { Nav } from '@components/containers/Nav'
@@ -13,6 +14,7 @@ export const RegisterView = () => {
         <AsideCard>
           <Title className="mb-10" />
           <RegisterForm />
+          <FooterForm />
         </AsideCard>
       </main>
     </div>
