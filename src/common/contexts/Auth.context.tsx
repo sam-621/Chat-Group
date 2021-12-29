@@ -1,10 +1,14 @@
+/* eslint-disable @typescript-eslint/no-empty-function */
 import { TOKEN_FIELD } from '@constants/cookies.constants'
 import { getIsLogged } from '@helpers/auth'
 import { removeCookie } from '@libs/cookies'
 import { createContext, FC, useContext, useState } from 'react'
 
-// eslint-disable-next-line @typescript-eslint/no-empty-function
-export const AuthContext = createContext({ isLogged: getIsLogged(), logOut: () => {} })
+export const AuthContext = createContext({
+  isLogged: getIsLogged(),
+  logOut: () => {},
+  login: () => {}
+})
 
 export const AuthProvider: FC = ({ children }) => {
   const [isLogged, setIsLogged] = useState(getIsLogged)
@@ -14,7 +18,11 @@ export const AuthProvider: FC = ({ children }) => {
     setIsLogged(false)
   }
 
-  return <AuthContext.Provider value={{ isLogged, logOut }}>{children}</AuthContext.Provider>
+  const login = () => {
+    setIsLogged(true)
+  }
+
+  return <AuthContext.Provider value={{ isLogged, logOut, login }}>{children}</AuthContext.Provider>
 }
 
 export const useAuthContext = () => useContext(AuthContext)

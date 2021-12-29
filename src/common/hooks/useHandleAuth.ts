@@ -1,5 +1,6 @@
 import { registerUser } from '@apis/auth.api'
 import { TOKEN_FIELD } from '@constants/cookies.constants'
+import { useAuthContext } from '@contexts/Auth.context'
 import { TUserRegisterDto } from '@interfaces/services/auth.interface'
 import { setCookie } from '@libs/cookies'
 import { showErrorMessage } from '@libs/toast.lib'
@@ -9,6 +10,7 @@ import { useUser } from './fetch/useUser'
 export const useHandleAuth = () => {
   const router = useRouter()
   const { mutateUser } = useUser()
+  const { login: loginInContext } = useAuthContext()
 
   const register = async (user: TUserRegisterDto) => {
     const { data, response } = await registerUser(user)
@@ -19,6 +21,7 @@ export const useHandleAuth = () => {
     }
 
     setCookie(TOKEN_FIELD, data.token)
+    loginInContext()
     mutateUser()
     router.push('/')
   }

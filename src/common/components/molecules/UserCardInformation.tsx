@@ -1,12 +1,12 @@
 import { PrimaryLink } from '@components/atoms/PrimaryLink'
 import { RedButton } from '@components/atoms/RedButton'
 import { Strong } from '@components/atoms/Strong'
+import { useAuthContext } from '@contexts/Auth.context'
 import { useUser } from '@hooks/fetch/useUser'
-import { useAuth } from '@hooks/useAuth'
 
 export const UserCardInformation = () => {
   const { data } = useUser()
-  const { isLogged } = useAuth()
+  const { isLogged, logOut } = useAuthContext()
   return (
     <>
       {isLogged ? (
@@ -15,7 +15,9 @@ export const UserCardInformation = () => {
           <PrimaryLink href="/edit/profile" className="py-4">
             Edit profile
           </PrimaryLink>
-          <RedButton className="py-4">Log out</RedButton>
+          <RedButton className="py-4" onClick={logOut}>
+            Log out
+          </RedButton>
         </div>
       ) : (
         <div className="flex flex-col gap-10">
