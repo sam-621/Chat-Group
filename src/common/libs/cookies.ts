@@ -5,5 +5,9 @@ export const getCookie = (field: string) => {
 }
 
 export const setCookie = (field: string, value: string) => {
-  Cookies.set(field, value)
+  Cookies.set(field, value, { expires: 3 })
+}
+
+export const removeCookie = (field: string) => {
+  Cookies.remove(field)
 }
