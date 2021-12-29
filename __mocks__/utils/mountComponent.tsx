@@ -3,11 +3,11 @@ import { act, render, RenderOptions, waitFor } from '@testing-library/react'
 import { ToastContainer } from 'react-toastify'
 
 export const mountComponent = async (Component: JSX.Element, options?: RenderOptions) => {
-  await waitFor(() => {
-    act(() => {
+  await act(async () => {
+    await waitFor(() => {
       render(
         <AuthProvider>
-          {Component}{' '}
+          {Component}
           <ToastContainer
             position="bottom-left"
             autoClose={5000}
