@@ -1,6 +1,6 @@
 import { TOKEN_FIELD } from '@constants/cookies.constants'
-import cookies from 'js-cookie'
+import { getCookie } from '@libs/cookies'
 
-export const getIsLogged = () => Boolean(cookies.get(TOKEN_FIELD))
-export const getToken = () => cookies.get(TOKEN_FIELD)
+export const getIsLogged = () => Boolean(getCookie(TOKEN_FIELD))
+export const getToken = () => getCookie(TOKEN_FIELD)
 export const authRoutes = ['/login', '/register']
