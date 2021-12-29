@@ -1,7 +1,7 @@
-import { registerUser } from '@apis/auth.api'
+import { loginUser, registerUser } from '@apis/auth.api'
 import { TOKEN_FIELD } from '@constants/cookies.constants'
 import { useAuthContext } from '@contexts/Auth.context'
-import { TUserRegisterDto } from '@interfaces/services/auth.interface'
+import { TUserLoginDto, TUserRegisterDto } from '@interfaces/services/auth.interface'
 import { setCookie } from '@libs/cookies'
 import { showErrorMessage } from '@libs/toast.lib'
 import { useRouter } from 'next/router'
@@ -26,7 +26,22 @@ export const useHandleAuth = () => {
     router.push('/')
   }
 
+  const login = async (user: TUserLoginDto) => {
+    const { data, response } = await loginUser(user)
+
+    if (!data) {
+      showErrorMessage(response.data.message)
+      return
+    }
+
+    setCookie(TOKEN_FIELD, data.token)
+    loginInContext()
+    mutateUser()
+    router.push('/')
+  }
+
   return {
-    register
+    register,
+    login
   }
 }
