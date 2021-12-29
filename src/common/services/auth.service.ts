@@ -20,7 +20,7 @@ export class AuthService extends HttpRequest {
   }
 
   async register(user: TUserRegisterDto): Promise<ServiceResponse<IRegisterResponse>> {
-    this.configRequest({ endpoint: `${URL_PREFIX}/login` })
+    this.configRequest({ endpoint: `${URL_PREFIX}/register` })
 
     const response = await this.post<Response<IRegisterResponse>>(user)
 

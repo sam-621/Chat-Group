@@ -1,8 +1,6 @@
+import { registerUser } from '@apis/auth.api'
 import { TUserRegisterDto } from '@interfaces/services/auth.interface'
-import { AuthService } from '@services/auth.service'
 import { useRouter } from 'next/router'
-
-const authService = new AuthService()
 
 export const useHandleAuth = () => {
   const router = useRouter()
@@ -30,7 +28,7 @@ export const useHandleAuth = () => {
       return
     }
 
-    const { data, response } = await authService.register(user)
+    const { data, response } = await registerUser(user)
 
     if (!data) {
       console.log(response.data.message)
