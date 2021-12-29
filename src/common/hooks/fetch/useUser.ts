@@ -3,7 +3,7 @@ import { INTERVAL_TO_REFRESH, USER_PROFILE } from '@constants/cache.constants'
 import useSWR from 'swr'
 
 export const useUser = () => {
-  const { data, error } = useSWR(USER_PROFILE, getUserProfile, {
+  const { data, error, mutate } = useSWR(USER_PROFILE, getUserProfile, {
     revalidateOnFocus: false,
     refreshInterval: INTERVAL_TO_REFRESH
   })
@@ -11,6 +11,7 @@ export const useUser = () => {
   return {
     data,
     error,
-    isLoading: !data && !error
+    isLoading: !data && !error,
+    mutateUser: mutate
   }
 }
