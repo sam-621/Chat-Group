@@ -1,4 +1,4 @@
-import { TRegisterUser } from '@interfaces/user.interface'
+import { TUserRegisterDto } from '@interfaces/services/auth.interface'
 import { AuthService } from '@services/auth.service'
 import { useRouter } from 'next/router'
 
@@ -7,7 +7,7 @@ const authService = new AuthService()
 export const useHandleAuth = () => {
   const router = useRouter()
 
-  const register = async (user: TRegisterUser) => {
+  const register = async (user: TUserRegisterDto) => {
     const { email, password, username } = user
 
     if (!email) {

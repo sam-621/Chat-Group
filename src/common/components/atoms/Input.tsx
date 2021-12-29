@@ -28,7 +28,7 @@ export const Input: FC<Props> = ({
         required
         onChange={onChange}
         value={value}
-        className={`${defaultBorder} ${hoverFocusHover} bg-transparent border  outline-none text-white p-2 transition duration-150 rounded-md max-h-12 max-w-sm`}
+        className={`${defaultBorder} ${hoverFocusHover} bg-transparent border  outline-none p-2 transition duration-150 rounded-md max-h-12 max-w-sm`}
         placeholder={placeHolderText || ''}
         autoComplete={type !== 'password' ? 'on' : 'off'}
       />
