@@ -1,4 +1,4 @@
-import { PageLoader } from '@components/atoms/loaders/PageLoader'
+import { Loader } from '@components/atoms/loaders/Loader'
 import { UserCardInformation } from '@components/molecules/UserCardInformation'
 import { DEFAULT_USER_IMAGE } from '@helpers/images'
 import { useUser } from '@hooks/fetch/useUser'
@@ -12,7 +12,7 @@ export const WelcomeCard = () => {
       <div className="flex justify-center">
         <Image src={data?.profilePic || DEFAULT_USER_IMAGE} width={200} height={200} alt="User" />
       </div>
-      {isLoading ? <PageLoader /> : <UserCardInformation />}
+      {isLoading ? <Loader /> : <UserCardInformation />}
     </div>
   )
 }
