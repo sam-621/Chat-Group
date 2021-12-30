@@ -1,1 +1,1 @@
-export const isFullArray = (array: unknown[]) => Boolean(array.length)
+export const isFullArray = (array: unknown[]) => Boolean(array?.length)
