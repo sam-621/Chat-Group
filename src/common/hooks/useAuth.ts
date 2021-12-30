@@ -1,4 +1,4 @@
-import { authRoutes, getIsLogged } from '@helpers/auth'
+import { authRoutes, getIsLogged, privateRoutes } from '@helpers/auth'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 
@@ -14,6 +14,10 @@ export const useAuth = () => {
       return
     }
 
+    if (!isLogged && privateRoutes.includes(router.pathname)) {
+      await router.push('/login')
+      return
+    }
     setIsLoading(false)
   }
 
