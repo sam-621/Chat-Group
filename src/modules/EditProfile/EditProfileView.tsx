@@ -1,7 +1,8 @@
+import { Title } from '@components/atoms/Title'
 import { GlobalChat } from '@components/containers/GlobalChat'
 import { Nav } from '@components/containers/Nav'
-import { WelcomeCard } from '@components/containers/WelcomeCard'
 import { AsideCard } from '@components/layouts/AsideCard'
+import { EditProfileForm } from './components/EditProfileForm'
 
 export const EditProfileView = () => {
   return (
@@ -10,7 +11,8 @@ export const EditProfileView = () => {
       <main className="flex flex-1 mx-20 h-4/5 mb-10 gap-40">
         <GlobalChat />
         <AsideCard>
-          <WelcomeCard />
+          <Title titleProp="Edit profile" className="mb-10" />
+          <EditProfileForm />
         </AsideCard>
       </main>
     </div>
