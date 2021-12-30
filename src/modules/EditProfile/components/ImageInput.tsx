@@ -6,13 +6,15 @@ export const ImageInput = () => {
   const { handleImage, inputRef, previewUrl } = useUploadImage()
   return (
     <div className="rounded-full flex justify-center items-center ">
-      <Image
-        src={previewUrl || DEFAULT_USER_IMAGE}
-        width={120}
-        height={120}
-        alt="profile"
-        className="object-cover"
-      />
+      <div className="mr-1">
+        <Image
+          src={previewUrl || DEFAULT_USER_IMAGE}
+          width={120}
+          height={120}
+          alt="profile"
+          className="object-cover rounded-full"
+        />
+      </div>
       <div className=" flex justify-center w-full">
         <input
           ref={inputRef}

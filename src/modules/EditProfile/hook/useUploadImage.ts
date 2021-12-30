@@ -1,3 +1,5 @@
+import { getFilenameExtension, getInputImage, isInvalidImage } from '@helpers/images'
+import { showErrorMessage } from '@libs/toast.lib'
 import { ChangeEvent, useRef, useState } from 'react'
 
 export const useUploadImage = () => {
@@ -6,15 +8,25 @@ export const useUploadImage = () => {
 
   const handleImage = (e: ChangeEvent<HTMLInputElement>) => {
     e.persist()
+    const image = getInputImage(inputRef.current)
 
-    const inputElement = inputRef.current as HTMLInputElement
+    if (!image) {
+      showErrorMessage('Something went wrong, reload the page')
+      return
+    }
 
-    if (!inputElement.files?.length) return
+    const imageExtension = getFilenameExtension(image.name)
 
-    const image = inputElement.files[0]
+    if (isInvalidImage(imageExtension)) {
+      showErrorMessage('Only images are acceptable')
+      return
+    }
 
     const imageUrl = URL.createObjectURL(image)
     setPreviewUrl(imageUrl)
+
+    const formData = new FormData()
+    formData.append('image', image)
   }
 
   return {
