@@ -1,7 +1,9 @@
-import { ChangeEvent, useRef } from 'react'
+import { ChangeEvent, useRef, useState } from 'react'
 
 export const useUploadImage = () => {
   const inputRef = useRef<HTMLInputElement>(null)
+  const [previewUrl, setPreviewUrl] = useState('')
+
   const handleImage = (e: ChangeEvent<HTMLInputElement>) => {
     e.persist()
 
@@ -10,11 +12,14 @@ export const useUploadImage = () => {
     if (!inputElement.files?.length) return
 
     const image = inputElement.files[0]
-    console.log(image)
+
+    const imageUrl = URL.createObjectURL(image)
+    setPreviewUrl(imageUrl)
   }
 
   return {
     handleImage,
-    inputRef
+    inputRef,
+    previewUrl
   }
 }
