@@ -1,5 +1,15 @@
-const ProfilePage = () => {
-  return <h1>Edit</h1>
+import { PageLoader } from '@components/atoms/loaders/PageLoader'
+import { useAuth } from '@hooks/useAuth'
+import { EditProfileView } from '@modules/EditProfile/EditProfileView'
+
+const EditProfilePage = () => {
+  const { isLoading } = useAuth()
+
+  if (isLoading) {
+    return <PageLoader />
+  }
+
+  return <EditProfileView />
 }
 
-export default ProfilePage
+export default EditProfilePage
