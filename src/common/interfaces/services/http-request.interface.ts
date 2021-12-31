@@ -9,4 +9,5 @@ export type TRequestOptions = {
   endpoint: string
   apiDomain?: string
   headers?: AxiosRequestHeaders
+  port?: number
 }
