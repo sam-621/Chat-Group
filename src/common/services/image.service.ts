@@ -5,13 +5,13 @@ import HttpRequest from './http-request.service'
 const URL_PREFIX = 'v1_1'
 
 export class ImageService extends HttpRequest {
-  async upload(data: FormData) {
+  async upload(formData: FormData) {
     this.configRequest({
       endpoint: `${URL_PREFIX}/${CLOUD_NAME}/image/upload`,
       apiDomain: CLOUD_API_DOMAIN
     })
 
-    const response = await this.post(data)
+    const response = await this.post(formData)
     console.log(response)
 
     return new ServiceResponse(response.data, response)
