@@ -7,4 +7,6 @@ export interface IHeader extends AxiosRequestHeaders {
 
 export type TRequestOptions = {
   endpoint: string
+  apiDomain?: string
+  headers?: AxiosRequestHeaders
 }

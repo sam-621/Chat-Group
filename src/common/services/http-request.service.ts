@@ -21,8 +21,12 @@ export default class HttpRequest {
   }
 
   protected configRequest(config: TRequestOptions) {
-    const { endpoint } = config
-    this.endpoint = endpoint
+    this.endpoint = config.endpoint
+    this.apiDomain = config.apiDomain || this.apiDomain
+    this.headers = {
+      ...this.headers,
+      ...config.headers
+    }
   }
 
   protected useToken(token = getCookie(TOKEN_FIELD) || '') {
