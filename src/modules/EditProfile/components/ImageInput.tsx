@@ -1,14 +1,16 @@
 import { DEFAULT_USER_IMAGE } from '@helpers/images'
+import { useUser } from '@hooks/fetch/useUser'
 import Image from 'next/image'
 import { useImagePreview } from '../hook/useImagePreview'
 
 export const ImageInput = () => {
+  const { data } = useUser()
   const { handleImage, inputRef, previewUrl } = useImagePreview()
   return (
     <div className="rounded-full flex justify-center items-center ">
       <div className="mr-1">
         <Image
-          src={previewUrl || DEFAULT_USER_IMAGE}
+          src={data?.profilePic || previewUrl || DEFAULT_USER_IMAGE}
           width={120}
           height={120}
           alt="profile"
