@@ -1,3 +1,5 @@
+import { uploadImage } from '@apis/image.api'
+import { CLOUDINARY_PRESET } from '@constants/env.constants'
 import { getFilenameExtension, getInputImage, isInvalidImage } from '@helpers/images'
 import { showErrorMessage } from '@libs/toast.lib'
 import { ChangeEvent, useRef, useState } from 'react'
@@ -6,7 +8,7 @@ export const useUploadImage = () => {
   const inputRef = useRef<HTMLInputElement>(null)
   const [previewUrl, setPreviewUrl] = useState('')
 
-  const handleImage = (e: ChangeEvent<HTMLInputElement>) => {
+  const handleImage = async (e: ChangeEvent<HTMLInputElement>) => {
     e.persist()
     const image = getInputImage(inputRef.current)
 
@@ -26,7 +28,11 @@ export const useUploadImage = () => {
     setPreviewUrl(imageUrl)
 
     const formData = new FormData()
-    formData.append('image', image)
+    formData.append('file', image)
+    formData.append('upload_preset', CLOUDINARY_PRESET)
+
+    const res = await uploadImage(formData)
+    console.log({ res })
   }
 
   return {
