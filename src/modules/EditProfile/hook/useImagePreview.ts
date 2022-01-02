@@ -4,7 +4,7 @@ import { getFilenameExtension, getInputImage, isInvalidImage } from '@helpers/im
 import { showErrorMessage } from '@libs/toast.lib'
 import { ChangeEvent, useRef, useState } from 'react'
 
-export const useUploadImage = () => {
+export const useImagePreview = () => {
   const inputRef = useRef<HTMLInputElement>(null)
   const [previewUrl, setPreviewUrl] = useState('')
 

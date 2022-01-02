@@ -1,9 +1,9 @@
 import { DEFAULT_USER_IMAGE } from '@helpers/images'
 import Image from 'next/image'
-import { useUploadImage } from '../hook/useUploadImage'
+import { useImagePreview } from '../hook/useImagePreview'
 
 export const ImageInput = () => {
-  const { handleImage, inputRef, previewUrl } = useUploadImage()
+  const { handleImage, inputRef, previewUrl } = useImagePreview()
   return (
     <div className="rounded-full flex justify-center items-center ">
       <div className="mr-1">
