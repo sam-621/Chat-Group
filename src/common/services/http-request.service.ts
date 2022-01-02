@@ -23,7 +23,6 @@ export default class HttpRequest {
   protected configRequest(config: TRequestOptions) {
     this.endpoint = config.endpoint
     this.apiDomain = config.apiDomain || this.apiDomain
-    this.apiPort = config.port ?? this.apiPort
     this.headers = {
       ...this.headers,
       ...config.headers
@@ -86,7 +85,7 @@ export default class HttpRequest {
   }
 
   private urlBuilder(): string {
-    const port = MODE === 'development' ? this.apiPort || '' : ''
+    const port = MODE === 'development' ? this.apiPort : ''
 
     return `${this.apiDomain}:${port}/${this.endpoint}`
   }

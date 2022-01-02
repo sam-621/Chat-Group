@@ -6,7 +6,7 @@ export const useUploadImage = () => {
   const inputRef = useRef<HTMLInputElement>(null)
   const [previewUrl, setPreviewUrl] = useState('')
 
-  const handleImage = async (e: ChangeEvent<HTMLInputElement>) => {
+  const handleImage = (e: ChangeEvent<HTMLInputElement>) => {
     e.persist()
     const image = getInputImage(inputRef.current)
 
@@ -26,7 +26,7 @@ export const useUploadImage = () => {
     setPreviewUrl(imageUrl)
 
     const formData = new FormData()
-    formData.append('file', image)
+    formData.append('image', image)
   }
 
   return {
