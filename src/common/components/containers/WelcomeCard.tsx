@@ -10,7 +10,13 @@ export const WelcomeCard = () => {
   return (
     <div className="p-12">
       <div className="flex justify-center">
-        <Image src={data?.profilePic || DEFAULT_USER_IMAGE} width={200} height={200} alt="User" />
+        <Image
+          src={data?.profilePic || DEFAULT_USER_IMAGE}
+          width={200}
+          height={200}
+          alt="User"
+          className="object-cover rounded-full"
+        />
       </div>
       {isLoading ? <Loader /> : <UserCardInformation />}
     </div>
