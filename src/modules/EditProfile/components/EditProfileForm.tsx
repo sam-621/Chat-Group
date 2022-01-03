@@ -11,15 +11,19 @@ export const EditProfileForm = () => {
   const email = useInput('email', data?.email)
   const username = useInput('text', data?.username)
   const imagePreview = useImagePreview()
-  const { handleSubmit } = useEditProfileForm(username, email, imagePreview.imageData)
+  const { handleSubmit, isLoading } = useEditProfileForm(username, email, imagePreview.imageData)
 
   return (
     <form className="px-5 grid gap-5" onSubmit={handleSubmit}>
       <ImageInput {...imagePreview} />
       <Input className="w-96" {...username} />
       <Input className="w-96" {...email} />
-      <PrimaryButton className="py-5 mx-4 mt-9" type="submit">
-        Save changes
+      <PrimaryButton
+        className={`py-5 mx-4 mt-9 ${isLoading && 'bg-gray-300'}`}
+        type="submit"
+        disabled={isLoading}
+      >
+        {isLoading ? 'Saving...' : 'Save changes'}
       </PrimaryButton>
     </form>
   )

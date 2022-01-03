@@ -5,12 +5,14 @@ import { useForm } from '@hooks/useForm'
 import { TUseInput } from '@hooks/useInput'
 import { TEditProfileDto } from '@interfaces/services/user.interface'
 import { THandleSubmit } from '@interfaces/utils.interface'
+import { useState } from 'react'
 
 export const useEditProfileForm = (
   username: TUseInput,
   email: TUseInput,
   imageData: FormData | null
 ) => {
+  const [isLoading, setIsLoading] = useState(false)
   const { isValidFormData } = useForm({ username, email })
   const { mutateUser } = useUser()
 
@@ -24,8 +26,12 @@ export const useEditProfileForm = (
 
   const handleSubmit: THandleSubmit = async (e) => {
     e.preventDefault()
+    setIsLoading(true)
 
-    if (!isValidFormData()) return
+    if (!isValidFormData()) {
+      setIsLoading(false)
+      return
+    }
 
     const imageUrl = await uploadImageToCloudinary()
 
@@ -36,8 +42,12 @@ export const useEditProfileForm = (
     }
 
     const userUpdated = await updateUserProfile(userToUpdate)
-    mutateUser(userUpdated)
+    await mutateUser(userUpdated)
+    setIsLoading(false)
   }
 
-  return { handleSubmit }
+  return {
+    handleSubmit,
+    isLoading
+  }
 }
