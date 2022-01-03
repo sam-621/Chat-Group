@@ -1,8 +1,4 @@
-import {
-  TEditProfileDto,
-  TEditProfileResponse,
-  TUserProfileResponse
-} from '@interfaces/services/user.interface'
+import { TEditProfileDto, TUserProfileResponse } from '@interfaces/services/user.interface'
 import { UserService } from '@services/user.service'
 
 const userService = new UserService()
@@ -17,12 +13,8 @@ export const getUserProfile = async (): Promise<TUserProfileResponse> => {
   return data
 }
 
-export const updateUserProfile = async (user: TEditProfileDto): Promise<TEditProfileResponse> => {
-  const { data, response } = await userService.updateUserProfile(user)
+export const updateUserProfile = async (user: TEditProfileDto) => {
+  const serviceResponse = await userService.updateUserProfile(user)
 
-  if (!data) {
-    throw response
-  }
-
-  return data
+  return serviceResponse
 }

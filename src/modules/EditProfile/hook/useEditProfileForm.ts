@@ -5,7 +5,7 @@ import { useForm } from '@hooks/useForm'
 import { TUseInput } from '@hooks/useInput'
 import { TEditProfileDto } from '@interfaces/services/user.interface'
 import { THandleSubmit } from '@interfaces/utils.interface'
-import { showSuccessMessage } from '@libs/toast.lib'
+import { showErrorMessage, showSuccessMessage } from '@libs/toast.lib'
 import { useState } from 'react'
 
 export const useEditProfileForm = (
@@ -43,7 +43,14 @@ export const useEditProfileForm = (
       profilePic: imageUrl || data?.profilePic || ''
     }
 
-    const userUpdated = await updateUserProfile(userToUpdate)
+    const { data: userUpdated, response } = await updateUserProfile(userToUpdate)
+
+    if (!userUpdated) {
+      showErrorMessage(response.data.message)
+      setIsLoading(false)
+      return
+    }
+
     await mutateUser(userUpdated)
     setIsLoading(false)
     showSuccessMessage('Profile updated successfully!')
