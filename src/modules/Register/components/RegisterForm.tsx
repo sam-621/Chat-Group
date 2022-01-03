@@ -1,6 +1,5 @@
 import { Input } from '@components/atoms/Input'
 import { PrimaryButton } from '@components/atoms/PrimaryButton'
-import { useHandleAuth } from '@hooks/useHandleAuth'
 import { useInput } from '@hooks/useInput'
 import { useRegisterForm } from '../hooks/useRegisterForm'
 
@@ -8,8 +7,7 @@ export const RegisterForm = () => {
   const username = useInput('text')
   const email = useInput('email')
   const password = useInput('password')
-  const { register } = useHandleAuth()
-  const { handleSubmit } = useRegisterForm(username, email, password, (user) => register(user))
+  const { handleSubmit } = useRegisterForm(username, email, password)
 
   return (
     <form onSubmit={handleSubmit} className="px-5 grid gap-5">
