@@ -8,7 +8,7 @@ export const Message: FC<Props> = ({ isOwner, userImage, username, content }) =>
         <div className="flex items-end">
           {/* user image */}
           <Image
-            className="border rounded-full"
+            className="border rounded-full object-cover"
             src={userImage}
             alt={username}
             width="40px"
