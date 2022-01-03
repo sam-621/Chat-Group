@@ -13,6 +13,7 @@ export const useEditProfileForm = (
   email: TUseInput,
   imageData: FormData | null
 ) => {
+  const { data } = useUser()
   const [isLoading, setIsLoading] = useState(false)
   const { isValidFormData } = useForm({ username, email })
   const { mutateUser } = useUser()
@@ -39,7 +40,7 @@ export const useEditProfileForm = (
     const userToUpdate: TEditProfileDto = {
       email: email.value,
       username: username.value,
-      profilePic: imageUrl || ''
+      profilePic: imageUrl || data?.profilePic || ''
     }
 
     const userUpdated = await updateUserProfile(userToUpdate)
