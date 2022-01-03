@@ -7,15 +7,19 @@ export const RegisterForm = () => {
   const username = useInput('text')
   const email = useInput('email')
   const password = useInput('password')
-  const { handleSubmit } = useRegisterForm(username, email, password)
+  const { handleSubmit, isLoading } = useRegisterForm(username, email, password)
 
   return (
     <form onSubmit={handleSubmit} className="px-5 grid gap-5">
       <Input className="w-96" {...username} />
       <Input className="w-96" {...email} />
       <Input className="w-96" {...password} />
-      <PrimaryButton className="py-5 mx-4 mt-9" type="submit">
-        Create account
+      <PrimaryButton
+        className={`py-5 mx-4 mt-9 ${isLoading && 'bg-gray-300'}`}
+        type="submit"
+        disabled={isLoading}
+      >
+        {isLoading ? 'Creating account...' : 'Create account'}
       </PrimaryButton>
     </form>
   )

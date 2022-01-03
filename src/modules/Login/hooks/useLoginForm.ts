@@ -10,11 +10,6 @@ export const useLoginForm: TUseLoginForm = (email, password) => {
   const { isValidFormData } = useForm({ email, password })
   const { login } = useHandleAuth()
 
-  const userToSave: TUserLoginDto = {
-    email: email.value,
-    password: password.value
-  }
-
   const handleSubmit: THandleSubmit = async (e) => {
     e.preventDefault()
     setIsLoading(true)
@@ -22,6 +17,11 @@ export const useLoginForm: TUseLoginForm = (email, password) => {
     if (!isValidFormData()) {
       setIsLoading(false)
       return
+    }
+
+    const userToSave: TUserLoginDto = {
+      email: email.value,
+      password: password.value
     }
 
     await login(userToSave)
