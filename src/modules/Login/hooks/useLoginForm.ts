@@ -1,10 +1,12 @@
 import { useForm } from '@hooks/useForm'
+import { useHandleAuth } from '@hooks/useHandleAuth'
 import { TUseInput } from '@hooks/useInput'
 import { TUserLoginDto } from '@interfaces/services/auth.interface'
 import { THandleSubmit } from '@interfaces/utils.interface'
 
-export const useLoginForm: TUseLoginForm = (email, password, cb) => {
+export const useLoginForm: TUseLoginForm = (email, password) => {
   const { isValidFormData } = useForm({ email, password })
+  const { login } = useHandleAuth()
 
   const userToSave: TUserLoginDto = {
     email: email.value,
@@ -16,7 +18,7 @@ export const useLoginForm: TUseLoginForm = (email, password, cb) => {
 
     if (!isValidFormData()) return
 
-    cb(userToSave)
+    login(userToSave)
   }
 
   return {
@@ -25,7 +27,7 @@ export const useLoginForm: TUseLoginForm = (email, password, cb) => {
 }
 
 type TUseLoginForm = {
-  (email: TUseInput, password: TUseInput, cb: (user: TUserLoginDto) => void): {
+  (email: TUseInput, password: TUseInput): {
     handleSubmit: THandleSubmit
   }
 }

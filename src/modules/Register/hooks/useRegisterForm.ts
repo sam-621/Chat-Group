@@ -1,12 +1,10 @@
-import { isValidEmail } from '@helpers/auth'
+import { useForm } from '@hooks/useForm'
 import { TUseInput } from '@hooks/useInput'
 import { TUserRegisterDto } from '@interfaces/services/auth.interface'
 import { THandleSubmit } from '@interfaces/utils.interface'
 
 export const useRegisterForm: TUseRegisterForm = (username, email, password, cb) => {
-  const { setError: setUsernameError } = username
-  const { setError: setEmailError } = email
-  const { setError: setPasswordError } = password
+  const { isValidFormData } = useForm({ username, email, password })
 
   const userToSave: TUserRegisterDto = {
     username: username.value,
@@ -14,40 +12,10 @@ export const useRegisterForm: TUseRegisterForm = (username, email, password, cb)
     password: password.value
   }
 
-  const cleanErrors = () => {
-    setEmailError('')
-    setPasswordError('')
-    setUsernameError('')
-  }
-
   const handleSubmit: THandleSubmit = (e) => {
     e.preventDefault()
-    cleanErrors()
 
-    if (!email.value) {
-      setEmailError('Email must not be empty')
-      return
-    }
-
-    if (!isValidEmail(email.value)) {
-      setEmailError('Email format is not correct')
-      return
-    }
-
-    if (!password.value) {
-      setPasswordError('Password must not be empty')
-      return
-    }
-
-    if (!username.value) {
-      setUsernameError('Username should not be empty')
-      return
-    }
-
-    if (password.value.length < 6) {
-      setPasswordError('Password must be bigger than 5 characters')
-      return
-    }
+    if (!isValidFormData()) return
 
     cb(userToSave)
   }
