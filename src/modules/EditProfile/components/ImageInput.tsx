@@ -9,7 +9,7 @@ export const ImageInput: FC<Props> = ({ handleImage, inputRef, previewUrl }) => 
     <div className="rounded-full flex justify-center items-center ">
       <div className="mr-1">
         <Image
-          src={data?.profilePic || previewUrl || DEFAULT_USER_IMAGE}
+          src={previewUrl || data?.profilePic || DEFAULT_USER_IMAGE}
           width={120}
           height={120}
           alt="profile"
