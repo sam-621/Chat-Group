@@ -23,7 +23,7 @@ export class UserService extends HttpRequest {
     this.configRequest({ endpoint: `${URL_PREFIX}/edit` })
     this.useToken()
 
-    const response = await this.post<Response<TEditProfileResponse>>(user)
+    const response = await this.put<Response<TEditProfileResponse>>(user)
 
     return new ServiceResponse(response.data.data, response)
   }

@@ -7,6 +7,7 @@ import { ChangeEvent, useRef, useState } from 'react'
 export const useImagePreview = () => {
   const inputRef = useRef<HTMLInputElement>(null)
   const [previewUrl, setPreviewUrl] = useState('')
+  const [imageData, setImageData] = useState<FormData | null>(null)
 
   const handleImage = async (e: ChangeEvent<HTMLInputElement>) => {
     e.persist()
@@ -30,14 +31,13 @@ export const useImagePreview = () => {
     const formData = new FormData()
     formData.append('file', image)
     formData.append('upload_preset', CLOUDINARY_PRESET)
-
-    const res = await uploadImage(formData)
-    console.log({ res })
+    setImageData(formData)
   }
 
   return {
     handleImage,
     inputRef,
-    previewUrl
+    previewUrl,
+    imageData
   }
 }
