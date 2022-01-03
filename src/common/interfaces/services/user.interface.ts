@@ -7,3 +7,7 @@ export type TEditProfileDto = Omit<IUser, 'password'>
 export type TUserProfileResponse = Omit<IUser, 'password'> & {
   _id: string
 }
+
+export type TEditProfileResponse = Omit<IUser, 'password'> & {
+  _id: string
+}
