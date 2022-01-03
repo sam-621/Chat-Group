@@ -3,8 +3,10 @@ import { useHandleAuth } from '@hooks/useHandleAuth'
 import { TUseInput } from '@hooks/useInput'
 import { TUserLoginDto } from '@interfaces/services/auth.interface'
 import { THandleSubmit } from '@interfaces/utils.interface'
+import { useState } from 'react'
 
 export const useLoginForm: TUseLoginForm = (email, password) => {
+  const [isLoading, setIsLoading] = useState(false)
   const { isValidFormData } = useForm({ email, password })
   const { login } = useHandleAuth()
 
@@ -13,21 +15,28 @@ export const useLoginForm: TUseLoginForm = (email, password) => {
     password: password.value
   }
 
-  const handleSubmit: THandleSubmit = (e) => {
+  const handleSubmit: THandleSubmit = async (e) => {
     e.preventDefault()
+    setIsLoading(true)
 
-    if (!isValidFormData()) return
+    if (!isValidFormData()) {
+      setIsLoading(false)
+      return
+    }
 
-    login(userToSave)
+    await login(userToSave)
+    setIsLoading(false)
   }
 
   return {
-    handleSubmit
+    handleSubmit,
+    isLoading
   }
 }
 
 type TUseLoginForm = {
   (email: TUseInput, password: TUseInput): {
     handleSubmit: THandleSubmit
+    isLoading: boolean
   }
 }

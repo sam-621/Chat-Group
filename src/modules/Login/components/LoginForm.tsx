@@ -6,14 +6,18 @@ import { useLoginForm } from '../hooks/useLoginForm'
 export const LoginForm = () => {
   const email = useInput('email')
   const password = useInput('password')
-  const { handleSubmit } = useLoginForm(email, password)
+  const { handleSubmit, isLoading } = useLoginForm(email, password)
 
   return (
     <form onSubmit={handleSubmit} className="px-5 grid gap-5">
       <Input className="w-96" {...email} />
       <Input className="w-96" {...password} />
-      <PrimaryButton className="py-5 mx-4 mt-9" type="submit">
-        Login
+      <PrimaryButton
+        className={`py-5 mx-4 mt-9 ${isLoading && 'bg-gray-300'}`}
+        type="submit"
+        disabled={isLoading}
+      >
+        {isLoading ? 'Getting in...' : 'Login'}
       </PrimaryButton>
     </form>
   )
