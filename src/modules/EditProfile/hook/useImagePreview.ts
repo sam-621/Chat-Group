@@ -1,4 +1,3 @@
-import { uploadImage } from '@apis/image.api'
 import { CLOUDINARY_PRESET } from '@constants/env.constants'
 import { getFilenameExtension, getInputImage, isInvalidImage } from '@helpers/images'
 import { showErrorMessage } from '@libs/toast.lib'
