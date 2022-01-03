@@ -1,11 +1,10 @@
 import { DEFAULT_USER_IMAGE } from '@helpers/images'
 import { useUser } from '@hooks/fetch/useUser'
 import Image from 'next/image'
-import { useImagePreview } from '../hook/useImagePreview'
+import { ChangeEvent, FC, RefObject } from 'react'
 
-export const ImageInput = () => {
+export const ImageInput: FC<Props> = ({ handleImage, inputRef, previewUrl }) => {
   const { data } = useUser()
-  const { handleImage, inputRef, previewUrl } = useImagePreview()
   return (
     <div className="rounded-full flex justify-center items-center ">
       <div className="mr-1">
@@ -29,4 +28,10 @@ export const ImageInput = () => {
       </div>
     </div>
   )
+}
+
+type Props = {
+  handleImage: (e: ChangeEvent<HTMLInputElement>) => Promise<void>
+  inputRef: RefObject<HTMLInputElement>
+  previewUrl: string
 }
