@@ -7,6 +7,7 @@ import { useMedia } from '@hooks/useMedia'
 
 export const HomeView = () => {
   const isMobile = useMedia(mediaFrom768)
+
   return (
     <div className="max-h-screen h-screen flex flex-col flex-1 gap-10">
       <Nav />

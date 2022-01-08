@@ -8,6 +8,7 @@ const LoginPage = () => {
   if (isLoading) {
     return <PageLoader />
   }
+
   return <LoginView />
 }
 
