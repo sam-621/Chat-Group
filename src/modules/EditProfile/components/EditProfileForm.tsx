@@ -27,7 +27,7 @@ export const EditProfileForm = () => {
       >
         {isLoading ? 'Saving...' : 'Save changes'}
       </PrimaryButton>
-      <RedButton className="py-4 mx-4" onClick={logOut}>
+      <RedButton className="py-4 mx-4" onClick={logOut} type="button">
         Log out
       </RedButton>
     </form>
