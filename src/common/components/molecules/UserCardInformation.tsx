@@ -1,3 +1,4 @@
+import { Loader } from '@components/atoms/loaders/Loader'
 import { PrimaryLink } from '@components/atoms/PrimaryLink'
 import { RedButton } from '@components/atoms/RedButton'
 import { Strong } from '@components/atoms/Strong'
@@ -5,8 +6,11 @@ import { useAuthContext } from '@contexts/Auth.context'
 import { useUser } from '@hooks/fetch/useUser'
 
 export const UserCardInformation = () => {
-  const { data } = useUser()
+  const { data, isLoading } = useUser()
   const { isLogged, logOut } = useAuthContext()
+
+  if (isLoading) return <Loader />
+
   return (
     <>
       {isLogged ? (
