@@ -12,7 +12,7 @@ export const GlobalChat = () => {
   const { id } = useUserId()
 
   return (
-    <section className="flex w-2/3 flex-col">
+    <section className="flex md:w-2/3 flex-col h-full mx-5 md:mx-0">
       <div className="flex-1 overflow-y-scroll">
         {messages.map((message) => (
           <Message
