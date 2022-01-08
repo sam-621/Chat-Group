@@ -11,9 +11,9 @@ export const RegisterForm = () => {
 
   return (
     <form onSubmit={handleSubmit} className="px-5 grid gap-5">
-      <Input className="w-96" {...username} />
-      <Input className="w-96" {...email} />
-      <Input className="w-96" {...password} />
+      <Input className="md:w-96" {...username} />
+      <Input className="md:w-96" {...email} />
+      <Input className="md:w-96" {...password} />
       <PrimaryButton
         className={`py-5 mx-4 mt-9 ${isLoading && 'bg-gray-300'}`}
         type="submit"
